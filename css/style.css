@@ -30,7 +30,9 @@
 html{
     scroll-behavior: smooth;
     font-size: 62.5%;
-    /* overflow: hidden; */
+    /* default set to 62.5% of 16px  */
+    /* overflow: hidden; */ 
+    /* removed for scrolling effect  */
 }
 
 .about-content .aboutdescription1{
@@ -63,9 +65,9 @@ section{
     z-index: 100;
 }
 
-.header.sticky{
+/* .header.sticky{
     border-bottom: 0.1rem solid rgba(0,0,0,0.2);
-}
+} */
 
 .logo{
     font-size: 2.5rem;
@@ -78,7 +80,7 @@ section{
     font-size: 1.7rem;
     color: var(--text-color);
     margin-left: 4rem;
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 .navbar a:hover,.navbar a.active{
@@ -110,6 +112,26 @@ section{
     font-size: 2rem;
 }
 
+.wave {
+    animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+    animation-duration: 2.5s;        /* Change to speed up or slow down */
+    animation-iteration-count: infinite;  /* Never stop waving :) */
+    transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+    display: inline-block;
+  }
+  
+  @keyframes wave-animation {
+      0% { transform: rotate( 0.0deg) }
+     10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+     20% { transform: rotate(-8.0deg) }
+     30% { transform: rotate(14.0deg) }
+     40% { transform: rotate(-4.0deg) }
+     50% { transform: rotate(10.0deg) }
+     60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+    100% { transform: rotate( 0.0deg) }
+  }
+  
+
 span{
     color: var(--main-color);
     font-size: 5rem;
@@ -124,7 +146,6 @@ span{
 .home-img{
     overflow: hidden;
     display: flex;
-    /* animation:floatImage 4s ease-in-out infinite; */
 }
 .home-img img{
     width: 100%;
@@ -133,23 +154,11 @@ span{
 .about-img{
     overflow: hidden;
     display: flex;
-    /* animation:floatImage 4s ease-in-out infinite; */
 }
 .about-img img{
     width: 100%;
 }
 
-/* @keyframes floatImage{
-    0%{
-        transform: translateY(0);
-    }
-    50%{
-        transform: translateY(-2.4rem);
-    }
-    100%{
-        transform: translateY(0);
-    }
-} */
 
 .home-content p{
     font-size: 1.6rem;
